@@ -26,10 +26,20 @@ void mainImage(out vec4 fragColor,in vec2 fragCoord){
     uv.x*=iResolution.x/iResolution.y;
     
     vec3 col=vec3(1.,1.,0.);
+    uv*=1.2;
     float smileyFace=SmileyFace(uv,vec2(0.1,0.1),0.1);
     smileyFace+=SmileyFace(uv,vec2(-0.1,0.1),0.1);
     smileyFace+=SmileyFace(uv,vec2(-0.1,-0.1),0.1);
     smileyFace+=SmileyFace(uv,vec2(0.1,-0.1),0.1);
+    smileyFace+=SmileyFace(uv,vec2(0.2,-0.3),0.05);
+    smileyFace+=SmileyFace(uv,vec2(-0.2,-0.3),0.05);
+    smileyFace+=SmileyFace(uv,vec2(0.2,0.3),0.05);
+    smileyFace+=SmileyFace(uv,vec2(-0.2,0.3),0.05);
+    smileyFace+=SmileyFace(uv,vec2(0.),0.04);
+    smileyFace+=SmileyFace(uv,vec2(0.4,0.0),0.04);
+    smileyFace+=SmileyFace(uv,vec2(-0.4,0.0),0.04);
+    smileyFace+=SmileyFace(uv,vec2(0.,0.4),0.04);
+    smileyFace+=SmileyFace(uv,vec2(0.,-0.4),0.04);
     
     col*=smileyFace;
     fragColor=vec4(col,1.);
